@@ -16,30 +16,27 @@ class Data():
         if (max_files != None):
             num_of_files = min(max_files, num_of_files)
 
-        total_size = 0
-        x_features = None
+        max_x = 0
+        x_width = 0
+
         # Get size of array
         for i in range(num_of_files):
             x = np.load(os.getcwd()+'/dataset/' + data_type +
                         '/' + data_type+'/' + str(i) + '.npy')
-            total_size += x.shape[0]
             if i == 0:
-                x_features = x.shape[1]
+                x_width = x.shape[1]
+            max_x = max(max_x, x.shape[0])
 
-        self.x = np.zeros((total_size, x_features))
-        self.y = np.zeros((total_size, 1))
+        self.x = np.zeros((num_of_files, max_x, x_width))
+        self.y = np.zeros((num_of_files, 1))
 
         with tqdm(total=num_of_files, bar_format="{l_bar}{bar} [ time left: {remaining} ]") as pbar:
-            write_index = 0
             for i in range(num_of_files):
                 x = np.load(os.getcwd()+'/dataset/' + data_type +
                             '/' + data_type+'/' + str(i) + '.npy')
-                self.x[write_index:write_index + x.shape[0]] = x
+                self.x[i, 0:0 + x.shape[0]] = x
                 if data_type == 'train':
-                    self.y[write_index:write_index + x.shape[0]] = np.full(
-                        (x.shape[0], 1), y_map.values[i][0])
-
-                write_index += x.shape[0]
+                    self.y[i, 0] = y_map.values[i][0]
                 pbar.update(1)
                 pbar.set_description(
                     'Loading ' + data_type + ' data' + ' %g' % (i+1) + '/'+str(num_of_files))
