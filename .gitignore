@@ -3,3 +3,7 @@
 
 # IDE config
 /.idea
+
+# iPython
+/.ipynb_checkpoints
+/__pycache__
