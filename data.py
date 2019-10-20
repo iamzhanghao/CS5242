@@ -16,16 +16,8 @@ class Data():
         if (max_files != None):
             num_of_files = min(max_files, num_of_files)
 
-        max_x = 0
-        x_width = 0
-
-        # Get size of array
-        for i in range(num_of_files):
-            x = np.load(os.getcwd()+'/dataset/' + data_type +
-                        '/' + data_type+'/' + str(i) + '.npy')
-            if i == 0:
-                x_width = x.shape[1]
-            max_x = max(max_x, x.shape[0])
+        max_x = 1000
+        x_width = 102
 
         self.x = np.zeros((num_of_files, max_x, x_width))
         self.y = np.zeros((num_of_files, 1))
