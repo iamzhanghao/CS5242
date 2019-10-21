@@ -35,9 +35,25 @@ class Data():
 
 
 if __name__ == '__main__':
-    train_data = Data(data_type='train')
-    test_data = Data(data_type='test')
-    print(train_data.x.shape)
-    print(train_data.y.shape)
-    print(test_data.x.shape)
-    print(test_data.y.shape)
+    # train_data = Data(data_type='train')
+    # test_data = Data(data_type='test')
+    # print(train_data.x.shape)
+    # print(train_data.y.shape)
+    # print(test_data.x.shape)
+    # print(test_data.y.shape)
+    # train_data = Data(data_type='train',max_files=1000)
+    train_data = Data(data_type='train',max_files=10000)
+    # test_data = Data(data_type='test')
+
+    frames =[]
+    with tqdm(total=len(train_data.x), bar_format="{l_bar}{bar} [ time left: {remaining} ]") as pbar:
+        for i in range(len(train_data.x)):
+            for row in train_data.x[i]:
+                if row[0:4].tolist() not in frames :
+                    frames.append(row[0:4].tolist())
+            pbar.update(1)
+            pbar.set_description(
+                    'Loading data' + ' %g' % (i+1) + '/'+str(len(train_data.x)))
+    print(frames)
+    print(len(frames))
+
