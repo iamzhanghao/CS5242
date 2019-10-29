@@ -7,3 +7,6 @@
 # iPython
 /.ipynb_checkpoints
 /__pycache__
+
+# Checkpoints
+/checkpoints
