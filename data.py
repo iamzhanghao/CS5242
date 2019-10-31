@@ -33,6 +33,9 @@ class Data():
                 pbar.set_description(
                     'Loading ' + data_type + ' data' + ' %g' % (i+1) + '/'+str(num_of_files))
 
+        # Normalize input features
+        self.x = self.x / np.max(self.x.reshape(-1, x_width), axis=0)
+
 
 if __name__ == '__main__':
     # train_data = Data(data_type='train')
