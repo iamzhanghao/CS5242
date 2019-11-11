@@ -6,7 +6,7 @@ import csv
 
 
 class Data():
-    def __init__(self, data_type='train', max_files=None, normalize=True):
+    def __init__(self, data_type='train', max_files=None, normalize=False):
         self.normalize_factors = self.__get_persisted_normalize_factors()
         self.api_size_list = [8, 4, 16, 16, 8, 12, 16, 12] + [1] * 10
         
