@@ -11,6 +11,9 @@
 
 # Directory
 
+dataset folder is under root directory
+
+```
 ├───dataset
 │   ├───test
 │   │   └───test
@@ -19,3 +22,4 @@
 ├───group12.py
 ├───Group 12 Project Report.pdf
 ├───readme.md
+```
