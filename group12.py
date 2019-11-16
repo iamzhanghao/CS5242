@@ -378,12 +378,12 @@ def combine_results():
 
 
 if __name__ == '__main__':
-    # train_model_a_boosting()
-    # predict_model_a()
-    # train_model_b_cv()
-    # predict_model_b()
-    # train_model_c_cv()
-    # predict_model_c()
+    train_model_a_boosting()
+    predict_model_a()
+    train_model_b_cv()
+    predict_model_b()
+    train_model_c_cv()
+    predict_model_c()
     combine_results()
 
     print("Done")
