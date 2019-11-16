@@ -270,8 +270,6 @@ def predict_model_b():
     avg_predictions = np.mean(predictions, axis=1)
     print(avg_predictions.shape)
 
-    import csv
-
     output_file = 'result_' + model_name + '.csv'
     with open(output_file, 'wt', newline='', encoding='utf-8') as output_file:
         csv_writer = csv.writer(output_file)
@@ -350,8 +348,6 @@ def predict_model_c():
 
     avg_predictions = np.mean(predictions, axis=1)
     print(avg_predictions.shape)
-
-    import csv
 
     output_file = 'result_' + model_name + '.csv'
     with open(output_file, 'wt', newline='', encoding='utf-8') as output_file:
