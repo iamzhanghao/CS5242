@@ -9,9 +9,9 @@
 - scikit-learn         0.21.3
 
 
-# Directory
+# Directory Structure
 
-dataset folder is under root directory
+dataset/ folder should be copied to root directory. Directories should be setup using the below structure.
 
 ```
 ├───dataset
@@ -20,6 +20,11 @@ dataset folder is under root directory
 │   ├───train
 │   │   └───train
 ├───group12.py
-├───Group 12 Project Report.pdf
 ├───readme.md
+```
+
+# Running The Script
+
+```
+python group12.py
 ```
